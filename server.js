@@ -11,14 +11,14 @@ app.get("/" , (req,res)=>{
     res.render("homepage");
 });
 app.get("/result" , (req,res)=>{
-    console.log(req);
-    console.log(req.query.movieName)
+    //console.log(req);
+    //console.log(req.query.movieName)
     //const query = req.query.search;
     const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${req.query.movieName}`
     request(url , function(error , response , body ){
         if(!error && response.statusCode == 200){
             const data = JSON.parse(body);
-            console.log(data);
+            //console.log(data);
             res.render("moviepage" , {movie:data});
         }else{
             res.send("Uh ohh ! There is Error!");
@@ -31,7 +31,7 @@ app.get("/result/:id" , (req,res)=>{
     request( url , function(error , response , body ){
         if(!error && response.statusCode == 200){
             const data = JSON.parse(body);
-            console.log(data)
+            //console.log(data)
             res.render("name", {movie:data})
         }else{
             res.send("Uh ohh ! There is Error!")
