@@ -1,0 +1,30 @@
+<%- include("./partials/header")%>
+<head>
+  <link rel="stylesheet" href="/public/indexO.css"/>
+</head>
+    <%if(movie.Response==='False'){%>
+            <h1>Movie not found!</h1>
+    <%}else{%>
+<marquee scrollamount=10 ><h1 style="color: rgb(217, 63, 114);">RESULTS ARE</h1></marquee>
+        <div class="row body" style="grid-row-gap:50px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;">
+            <%movie['Search'].forEach(function(movies){%>
+              <div class="col-sm">
+                <div class="card" class="border border-warning"style="width: 18rem;position:relative;left:30px;border: 1px solid #73AD21;">
+                    <img src="<%=movies.Poster%>" class="card-img-top fit-picture" alt=<%=movies.Title%>>
+                    <div class="card-body" style="background-color:rgba(238, 165, 129, 0.229)">
+                      <h5 class="card-title"><%=movies.Title%>(<%=movies.Year%>)</h5>
+                      <!--p class="card-text">WANT TO KNOW MORE ABOUT MOVIE CLICK ON BELOW BUTTON</p-->
+                      <a href="/result/<%=movies.imdbID%>" class="btn btn-danger">Know More</a>
+                    </div>
+                  </div>
+               </div>
+                <%})%>
+            <%}%>
+        </div>
+        
+<%- include("./partials/footer")%>
+    
+
