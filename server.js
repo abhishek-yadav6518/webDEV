@@ -14,7 +14,7 @@ app.get("/result" , (req,res)=>{
     //console.log(req);
     //console.log(req.query.movieName)
     //const query = req.query.search;
-    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${req.query.movieName}`
+    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${req.query.movieName}&plot=full`
     request(url , function(error , response , body ){
         if(!error && response.statusCode == 200){
             const data = JSON.parse(body);
@@ -27,7 +27,7 @@ app.get("/result" , (req,res)=>{
 
 });
 app.get("/result/:id" , (req,res)=>{
-    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${req.params.id}`
+    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${req.params.id}&plot=full`
     request( url , function(error , response , body ){
         if(!error && response.statusCode == 200){
             const data = JSON.parse(body);

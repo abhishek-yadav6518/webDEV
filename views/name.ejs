@@ -1,37 +1,50 @@
 <%- include("./partials/header")%>
-<h1 style="color: yellow;"> INFO ABOUT MOVIE</h1>
-    <div class="jumbotron">
-        <h1 class="display-4"><b style="text-align:centre;"><%=movie.Title%></b></h1>
-        <br>
-       <div style="text-align:centre"><img src="<%=movie.Poster%>" alt=<%=movie.Title%> class="mychange"></div>
-        <hr class="my-4" style="background-color: red;width:100%;">
+<style>
+    img {
+        float: left;
+        background-color: white;
+        color: black;
+    }
+
+    .myclass {
+        background-color: rgb(29, 26, 26);
+        color: white;
+    }
+</style>
+<h1 style="color: yellow; text-align: center;"> <%=movie.Title%> </h1>
+<div class="container-fluid">
+    <img src="<%=movie.Poster%>" class="mychange" style="background-color: white; color: black;" alt=<%=movie.Title%>>
+    <p style="float: right;">
+            <h2 style="font-style: oblique;margin-left: 150PX; color: white;">
+                Summary: <%=movie.Plot%>
+            </h2>
+    </p>
+</div>
+<div class="jumbotron" style="clear: both; font-style: italic;">
+       <h2 > Movie INFO </h2>
         <p class="lead">
-            <ol type="1">
-                <h2><li>TITLE:<%=movie.Title%></li></h2>
+            <ul >
+                <li>Year :<%=movie.Year%></li>
                 <br>
-                <h2><li>YEAR:<%=movie.Year%></li></h2>
+                <li>Rating :<%=movie.Rated%></li>
                 <br>
-                <h2><li>RATED:<%=movie.Rated%></li></h2>
+                <li>Realsed date :<%=movie.Released%></li>
                 <br>
-                <h2><li>RELEASED:<%=movie.Released%></li></h2>
+                <li>Movie duration :<%=movie.Runtime%></li>
                 <br>
-                <h2><li>RUNTIME:<%=movie.Runtime%></li></h2>
+                <li>Genre :<%=movie.Genre%></li>
                 <br>
-                <h2><li>GENRE:<%=movie.Genre%></li></h2>
+                <li>Director :<%=movie.Director%></li>
                 <br>
-                <h2><li>DIRECTOR NAME :<%=movie.Director%></li></h2>
+                <li>Writer :<%=movie.Writer%></li>
                 <br>
-                <h2><li>WRITER:<%=movie.Writer%></li></h2>
+                <li>Actors :<%=movie.Actors%></li>
                 <br>
-                <h2><li>ACTORS:<%=movie.Actors%></li></h2>
+                <li>Collection :<%=movie.BoxOffice%></li>
                 <br>
-                <h2><li>PLOT:<%=movie.Plot%></li></h2>
-                <br>
-                <h2><li>IMDBRATING:<%=movie.imdbRating%></li></h2>
-                <br>
-                <h2><li>BOX OFFICE:<%=movie.BoxOffice%></li></h2>
-                <br>
-                <h2><li>PRODUCTION:<%=movie.Production%></li></h2>
-             </ol>   
+                <li>Production :<%=movie.Production%></li>
+            </ul>
         </p>
+</div>
+
 <%- include("./partials/footer")%>
